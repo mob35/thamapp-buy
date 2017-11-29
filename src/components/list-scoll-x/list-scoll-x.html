@@ -1,0 +1,38 @@
+<ion-scroll scrollX="true" class="horizontal-categories">
+  <!-- <ion-row id="flexWrap">
+    <ion-col col-4 *ngFor="let popular of populars" (click)="_selectedItem(popular)">
+      <ion-thumbnail>
+        <preload-image [ratio]="{w:1, h:1}" [src]="popular.image" title="popular.image"></preload-image>
+      </ion-thumbnail>
+      <div class="detailImage">
+        <p class="textImage">{{popular.name}}</p>
+      </div>
+    </ion-col>
+  </ion-row> -->
+
+  <!-- <ion-row id="flexWrap">
+    <ion-col col-6 *ngFor="let popular of populars" (click)="_selectedItem(popular)">
+      <ion-card>
+        <img [src]="popular.image" />
+        <ion-card-content>
+          <p class="card-subtitle">{{popular.name}}</p>
+          <p class="card-subtitle">{{popular.price}}</p>
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row> -->
+
+
+  <ion-row id="flexWrap">
+    <ion-col col-6 *ngFor="let popular of populars" (click)="_selectedItem(popular)">
+      <ion-card>
+        <img [src]="popular.image" />
+        <ion-item>
+          <p class="textImage">{{popular.name}}</p>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-scroll>

@@ -1,0 +1,14 @@
+<!-- Generated template for the IonFormPaymentComponent component -->
+<ion-form-paymentoption [paymentgateway]="paymentgateway.payment" [datashipping]="datashipping" (datapayment)="paymentType($event)"
+[(channel)]="channel">
+<!-- <ion-form-credit [value]="'Credit Card'" (datacredit)="formcredit($event)"></ion-form-credit> -->
+<ion-form-delivery [value]="'Cash On Delivery'"></ion-form-delivery>
+<ion-form-bank [value]="'Bank Transfer'"></ion-form-bank>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <button ion-button full color="danger" class="slide-next" (click)="stepValidation()">รีวิวการสั่งสินค้า</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-form-paymentoption>

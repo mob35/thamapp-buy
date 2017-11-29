@@ -1,0 +1,52 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header-cs">
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form (ngSubmit)="saveAddress()">
+    <ion-item>
+      <ion-label floating>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.firstName" name="Firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.lastName" name="Lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="user.address" name="Address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Subdistrict</ion-label>
+      <ion-input type="text" [(ngModel)]="user.subdistrict" name="Subdistrict"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>District</ion-label>
+      <ion-input type="text" [(ngModel)]="user.district" name="District"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Province</ion-label>
+      <ion-input type="text" [(ngModel)]="user.province" name="Province"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Postcode</ion-label>
+      <ion-input type="text" [(ngModel)]="user.postcode" name="Postcode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Tel</ion-label>
+      <ion-input type="text" [(ngModel)]="user.tel" name="Tel"></ion-input>
+    </ion-item>
+    <button ion-button full color="submit" type="submit">{{'SAVE'}}</button>
+  </form>
+</ion-content>

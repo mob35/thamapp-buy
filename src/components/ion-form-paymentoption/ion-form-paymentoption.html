@@ -1,0 +1,18 @@
+<!-- Generated template for the IonFormPaymentoptionComponent component -->
+<ion-grid id="hContent" text-right>
+  <ion-row>
+    <ion-col>
+      <ion-row>
+        <ion-col text-center *ngFor="let payment of paymentgateway" (click)="selectpayment(payment)">
+          <ion-segment mode="md" color="light" [(ngModel)]="channel">
+            <ion-segment-button id="segmentPayment" [value]="payment.name">
+              <img src="{{payment.image}}">
+            </ion-segment-button>
+          </ion-segment>
+          <p>{{payment.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ng-content></ng-content>

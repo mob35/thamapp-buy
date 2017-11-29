@@ -1,0 +1,29 @@
+page-listshop {
+    img {
+        object-fit: cover !important;
+    }
+    ul {
+        padding: 0px;
+        margin-top:0px;
+        &.rating li {
+            padding: 0px 0px !important;
+            background: none;
+            color: #52a97a;
+            ion-icon {
+                font-size: 20px;
+            }
+        }
+    }
+    .ion-ios-star:before {
+        content: "\f1aa" !important;
+    }
+    .ion-ios-star-outline:before{
+        content: "\f1a9" !important;
+    }
+    .ion-md-star:before {
+        content: "\f1aa" !important;
+    }
+    .ion-md-star-outline:before{
+        content: "\f1a9" !important;
+    }
+}

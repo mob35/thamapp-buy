@@ -1,0 +1,56 @@
+list-scoll-x {
+  .card {
+    border-radius: 4px;
+    height: 220px;
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  ion-card img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    padding: 5px;
+  }
+  #flexWrap {
+    flex-wrap: nowrap;
+  }
+  .detailImage {
+    height: 30px;
+    text-align: center;
+    background: white;
+    margin-top: -43px; // opacity: 0.7; 
+    object-fit: cover; // padding-left: 15px;
+  }
+  .textImage {
+    padding-top: 5px;
+    color: black;
+    white-space: nowrap;
+    // width: 5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  $categories-horizontal-list-padding: 10px;
+  $white: #FFFFFF;
+  $white-a: darken($white, 3%);
+  $white-b: darken($white, 6%);
+  $white-c: darken($white, 12%);
+  $white-d: darken($white, 24%);
+  .horizontal-categories {
+    // border-bottom: 10px solid $white-a; 
+    // @include element-shadow();
+    // @mixin element-shadow($color: $white-d) {
+    //     box-shadow: inset 0 -0.5px 0 0 #{$color};
+    // }
+    // padding-bottom: 16px;
+    .scroll-content {
+      position: relative;
+      contain: style layout;
+    }
+    preload-image {
+      img {
+        z-index: -3;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<!--
+  Generated template for the HistoryDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header-cs">
+    <ion-title>History Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <p>วันที่ซื้อ : {{item.created | moment: 'LL'}}</p> -->
+  <p>วันที่ซื้อ : {{item.created | date: 'dd/MM/yyyy'}}</p>
+  
+  <p>สถานะการสั่งซื้อ : {{item.status}}</p>
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let itm of item.items ">
+        <ion-thumbnail item-left>
+          <img src="{{itm.product.images ? itm.product.images[0] : 'no image'}}">
+        </ion-thumbnail>
+        <h2>{{itm.product.name}}</h2>
+        <p>ราคา : {{itm.product.promotionprice}} {{itm.product.currency}}</p>
+        <p>จำนวน : {{itm.qty}}</p>
+        <p>รวม : {{itm.amount - itm.discount}} {{itm.product.currency}}</p>
+        <button ion-button clear item-right></button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <h3 text-right>ราคาสุทธิ : {{item.totalamount}} THB</h3>
+  <div *ngIf="item.isTransfer">
+    <ion-upload-images [maximumImagesCount]="1" [images]="pImages" [isShowUpload]="false" (resImage)="resImageEvent($event)"></ion-upload-images>
+    <button ion-button block color="submit" [disabled]="resImg == ''" (click)="upLoadSlip()">upload slip</button>
+  </div>
+</ion-content>

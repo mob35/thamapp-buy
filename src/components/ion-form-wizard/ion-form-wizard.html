@@ -1,0 +1,18 @@
+<!-- Generated template for the IonFormWizardComponent component -->
+<ion-navbar id="fixNav">
+  <ion-grid text-right>
+    <ion-row>
+      <ion-col *ngFor="let step of steps">
+        <ion-row>
+          <ion-col text-center>
+            <ion-segment mode="md" color="light" [(ngModel)]="currentstep">
+              <ion-segment-button id="segmentStep" [value]="step.value">{{step.value}}</ion-segment-button>
+            </ion-segment>
+            <p>{{step.title}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-navbar>
+<ng-content></ng-content>
