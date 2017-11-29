@@ -17,6 +17,7 @@ export class IonUploadImagesComponent {
   @Input() images: Array<any> = [];
   @Input() isShowUpload: boolean;
   @Input() maximumImagesCount: any;
+  @Input() imageDefault: any;
   @Output() resImage: EventEmitter<any> = new EventEmitter();
   constructor(
     public imagePicker: ImagePicker,

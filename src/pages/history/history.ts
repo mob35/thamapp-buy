@@ -4,7 +4,7 @@ import { HistoryDetailPage } from './../history-detail/history-detail';
 import { LoadingProvider } from './../../providers/loading/loading';
 import { OrderProvider } from './../../providers/order/order';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { OrderModel } from './history.model';
 // import { OrderModel } from '@ngcommerce/core';
 

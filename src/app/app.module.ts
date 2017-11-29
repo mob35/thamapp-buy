@@ -19,11 +19,11 @@ import { ListScollXComponent } from '../components/list-scoll-x/list-scoll-x';
 import { PreloadImage } from '../components/preload-image/preload-image';
 
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { Dialogs } from '@ionic-native/dialogs';
 
 import {
   EcommerceCoreModule,
   IonIconSearchbarComponent,
-  IonListGridComponent,
   IonFormProfileComponent,
   IonListCartComponent,
   IonListProductComponent,
@@ -33,7 +33,7 @@ import {
   IonListShopComponent,
   IonDetailShopComponent,
   IonBackgroundImageComponent,
-  OmiseService
+  IonListScollXComponent
 } from "@ngcommerce/core";
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -109,6 +109,7 @@ import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/i
     EditProfilePage,
     IonUploadImagesComponent,
     IonFormProfileComponent,
+    IonListScollXComponent,
 
     // Checkout core
     IonFormCreditComponent,
@@ -168,7 +169,8 @@ import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/i
     Base64,
     OrderProvider,
     OneSignal,
-    Facebook
+    Facebook,
+    Dialogs
   ]
 })
 export class AppModule { }

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform, App } from 'ionic-angular';
-import { UserModel, AuthenService } from '@ngcommerce/core';
+import { AuthenService } from '@ngcommerce/core';
 import { RegisterPage } from '../register/register';
 import { ThamappAuthenProvider } from '../../providers/thamapp-authen/thamapp-authen';
 import { TabsPage } from '../tabs/tabs';
 import { LoadingProvider } from '../../providers/loading/loading';
 import { OneSignal } from '@ionic-native/onesignal';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-
+import { Dialogs } from '@ionic-native/dialogs';
 /**
  * Generated class for the LoginPage page.
  *
@@ -31,7 +31,8 @@ export class LoginPage {
     public app: App,
     public loadingCtrl: LoadingProvider,
     public oneSignal: OneSignal,
-    public fb: Facebook
+    public fb: Facebook,
+    public dialogs: Dialogs
   ) {
 
   }
@@ -57,14 +58,15 @@ export class LoginPage {
             });
           }
           window.localStorage.setItem('selectedTab', '2');
-          // setTimeout(function () {
-          // this.navCtrl.setRoot(TabsPage);
           this.loadingCtrl.dismiss();
           this.app.getRootNav().setRoot(TabsPage);
         }, (error) => {
           this.loadingCtrl.dismiss();
-          alert(JSON.parse(error._body).message);
-          // this.loadingCtrl.dismiss();
+          if (JSON.parse(error._body).message) {
+            this.dialogs.alert(JSON.parse(error._body).message, 'Login');
+          } else {
+            console.log(error);
+          }
         });
       } else {
         this.loadingCtrl.dismiss();
@@ -72,7 +74,11 @@ export class LoginPage {
       }
     }, (err) => {
       this.loadingCtrl.dismiss();
-      alert(JSON.parse(err._body).message);
+      if (JSON.parse(err._body).message) {
+        this.dialogs.alert(JSON.parse(err._body).message, 'Login');
+      } else {
+        console.log(err);
+      }
     });
 
   }
@@ -85,12 +91,11 @@ export class LoginPage {
     this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me?fields=id,last_name,first_name,picture,email', null).then((user: FacebookLoginResponse) => {
-          // alert(JSON.stringify(user));
           let data = JSON.parse(JSON.stringify(user));
           this.loginWithFacebook(data);
         })
           .catch(e => {
-            alert(JSON.stringify(e));
+            console.log(e);
           })
       }
       )

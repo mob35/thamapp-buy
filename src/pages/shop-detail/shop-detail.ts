@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { ShopModel, ShopService } from "@ngcommerce/core";
 import { WritereviewPage } from '../writereview/writereview';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { ProductDetailPage } from '../product-detail/product-detail';
 
 /**
  * Generated class for the ShopDetailPage page.
@@ -23,8 +24,8 @@ export class ShopDetailPage {
     public navParams: NavParams,
     public shopService: ShopService,
     public modalCtrl: ModalController,
-    public loadingCtrl : LoadingProvider
-    
+    public loadingCtrl: LoadingProvider
+
   ) {
   }
 
@@ -60,5 +61,9 @@ export class ShopDetailPage {
       }
     });
     reviewModal.present();
+  }
+
+  selectProduct(e) {
+    this.navCtrl.push(ProductDetailPage, e);
   }
 }

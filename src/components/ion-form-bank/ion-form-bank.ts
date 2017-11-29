@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonFormPaymentOptionComponent } from './../ion-form-paymentoption/ion-form-paymentoption';
 
 /**

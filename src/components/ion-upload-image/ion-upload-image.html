@@ -1,14 +1,18 @@
 <!-- Generated template for the IonUploadImageComponent component -->
-<div *ngIf="images.length === 0">
-    <img (click)="onUpload()" src="./assets/image/uploadImg.png">
+<div class="min-height" *ngIf="images.length === 0 && imageDefault ===0">
+  <img (click)="onUpload()" src="./assets/image/Upload-Profile.png">
 </div>
 
-<div *ngIf="images.length > 0">
-  <ion-slides #formSlideImages pager="true">
-    <ion-slide *ngFor="let item of images; let i = index;">
-      <img id="maxImage" src="{{ item }}">
+<div class="min-height" *ngIf="images.length === 0 && imageDefault ===1">
+  <img (click)="onUpload()" src="./assets/image/Upload-Slip.png">
+</div>
+
+<div class="min-height" *ngIf="images.length > 0">
+  <ion-slides #formSlideImages pager="{{maximumImagesCount > 1 ? true:false}}">
+    <ion-slide *ngFor="let item of images; let i = index;" class="min-height">
+      <img id="maxImage" src="{{ item }}" class="image-height">
       <div id="fixPosition">
-          <ion-icon id="iconTrash" name="ios-trash" (click)="onRemove(i)"></ion-icon>
+        <ion-icon id="iconTrash" name="ios-trash" (click)="onRemove(i)"></ion-icon>
       </div>
     </ion-slide>
   </ion-slides>

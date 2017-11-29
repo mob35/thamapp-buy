@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, App, NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams } from 'ionic-angular';
 import { HomeService, HomeCategoryModel, ProductItemModel } from "@ngcommerce/core";
 import { ListshopPage } from '../listshop/listshop';
 import { ListproductPage } from '../listproduct/listproduct';

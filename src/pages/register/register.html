@@ -14,7 +14,7 @@
 
 
 <ion-content>
-  <form (ngSubmit)="saveAddress()">
+  <form (ngSubmit)="onRegister()">
     <ion-item>
       <ion-label floating>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="user.firstName" name="Firstname"></ion-input>
@@ -24,6 +24,10 @@
       <ion-input type="text" [(ngModel)]="user.lastName" name="Lastname"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email" name="E-mail"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
       <ion-label floating>Address</ion-label>
       <ion-input type="text" [(ngModel)]="user.address" name="Address"></ion-input>
     </ion-item>
@@ -42,7 +46,7 @@
     <ion-item>
       <ion-label floating>Postcode</ion-label>
       <ion-input type="text" [(ngModel)]="user.postcode" name="Postcode"></ion-input>
-    </ion-item>
+    </ion-item> -->
     <ion-item>
       <ion-label floating>Tel</ion-label>
       <ion-input type="text" [(ngModel)]="user.tel" name="Tel"></ion-input>

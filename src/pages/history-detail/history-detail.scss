@@ -1,5 +1,28 @@
 page-history-detail {
+    ion-content {
+        background-color: #ededed !important;
+    }
+    .item-divider-md {
+        border-bottom: none !important;
+    }
     img {
         object-fit: cover !important;
+    }
+    .list-md {
+        margin: 0px;
+    }
+    .list-ios {
+        margin: 0px;
+    }
+    .is-transfer {
+        background-color: #ffffff;
+    }
+    .product-history {
+        padding-top: 0px !important;
+    }
+    .product-header {
+        background-color: #ffffff;
+        padding: 16px !important;
+        margin-bottom: 0px !important;
     }
 }

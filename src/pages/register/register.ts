@@ -1,10 +1,12 @@
-import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, Platform } from 'ionic-angular';
 import { regiterModel } from './register.model';
-import { ThamappAuthenProvider } from '../../providers/thamapp-authen/thamapp-authen';
 import { LoadingProvider } from '../../providers/loading/loading';
-
+import { Dialogs } from '@ionic-native/dialogs';
+import { AuthenService } from '@ngcommerce/core';
+import { TabsPage } from '../tabs/tabs';
+import { OneSignal } from '@ionic-native/onesignal';
+// import { TabsPage } from './../tabs/tabs';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -23,9 +25,12 @@ export class RegisterPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public thamappAuthenService: ThamappAuthenProvider,
+    public authenService: AuthenService,
     public app: App,
-    public loadingCtrl: LoadingProvider
+    public loadingCtrl: LoadingProvider,
+    public dialogs: Dialogs,
+    public platform: Platform,    
+    public oneSignal: OneSignal
   ) {
     // alert(this.navParams.data);
     if (this.navParams.data && this.navParams.data !== undefined) {
@@ -48,15 +53,43 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  saveAddress() {
+  // saveAddress() {
+  //   this.loadingCtrl.onLoading();
+  //   this.thamappAuthenService.regisAndAddress(this.user).then((data) => {
+  //     this.loadingCtrl.dismiss();
+  //     window.localStorage.setItem('selectedTab', '2');
+  //     this.app.getRootNav().setRoot(TabsPage);
+  //   }, (err) => {
+  //     this.loadingCtrl.dismiss();
+  //     if (JSON.parse(err._body).message) {
+  //       this.dialogs.alert(JSON.parse(err._body).message, 'Register');
+  //     } else {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
+
+  onRegister() {
     this.loadingCtrl.onLoading();
-    this.thamappAuthenService.regisAndAddress(this.user).then((data) => {
-      this.loadingCtrl.dismiss();
+    this.user.username = this.user.tel;
+    this.user.password = 'Usr#Pass1234';
+    this.authenService.signUp(this.user).then((data) => {
+      window.localStorage.setItem('thamappbuyer', JSON.stringify(data));
+      if (this.platform.is('cordova')) {
+        this.oneSignal.getIds().then((data) => {
+          this.authenService.pushNotificationUser({ id: data.userId });
+        });
+      }
       window.localStorage.setItem('selectedTab', '2');
+      this.loadingCtrl.dismiss();
       this.app.getRootNav().setRoot(TabsPage);
     }, (err) => {
       this.loadingCtrl.dismiss();
-      alert(JSON.parse(err._body).message);
+      if (JSON.parse(err._body).message) {
+        this.dialogs.alert(JSON.parse(err._body).message, 'Register');
+      } else {
+        console.log(err);
+      }
     });
   }
 

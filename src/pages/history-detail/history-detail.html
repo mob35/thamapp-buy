@@ -13,12 +13,28 @@
 </ion-header>
 
 
-<ion-content padding>
-  <!-- <p>วันที่ซื้อ : {{item.created | moment: 'LL'}}</p> -->
-  <p>วันที่ซื้อ : {{item.created | date: 'dd/MM/yyyy'}}</p>
-  
-  <p>สถานะการสั่งซื้อ : {{item.status}}</p>
-  <div>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      วันที่ซื้อ : {{item.created | date: 'dd/MM/yyyy'}}
+    </ion-item>
+    <ion-item>
+      สถานะการสั่งซื้อ : {{item.status}}
+    </ion-item>
+    <ion-item>
+      ราคาสุทธิ : {{item.totalamount}} THB
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="item.isTransfer" class="is-transfer">
+    <p padding>อัพโหลดหลักฐานการชำระเงิน</p>
+    <div padding>
+      <ion-upload-images [maximumImagesCount]="1" [imageDefault]="1" [images]="pImages" [isShowUpload]="false" (resImage)="resImageEvent($event)"></ion-upload-images>
+    </div>
+  </div>
+
+  <div class="product-history">
+    <p class="product-header">รายการสินค้า</p>
     <ion-list>
       <ion-item *ngFor="let itm of item.items ">
         <ion-thumbnail item-left>
@@ -32,9 +48,10 @@
       </ion-item>
     </ion-list>
   </div>
-  <h3 text-right>ราคาสุทธิ : {{item.totalamount}} THB</h3>
-  <div *ngIf="item.isTransfer">
-    <ion-upload-images [maximumImagesCount]="1" [images]="pImages" [isShowUpload]="false" (resImage)="resImageEvent($event)"></ion-upload-images>
-    <button ion-button block color="submit" [disabled]="resImg == ''" (click)="upLoadSlip()">upload slip</button>
-  </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button block [disabled]="resImg == ''" (click)="upLoadSlip()">Submit</button>
+  </ion-toolbar>
+</ion-footer>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, App } from 'ionic-angular';
 import { ProductModel, ProductService, FavoriteService, CartService } from "@ngcommerce/core";
 import { WritereviewPage } from '../writereview/writereview';
-import { CartPage } from '../cart/cart';
 import { LoginPage } from '../login/login';
 import { TabsPage } from '../tabs/tabs';
 import { ThamappAuthenProvider } from '../../providers/thamapp-authen/thamapp-authen';
