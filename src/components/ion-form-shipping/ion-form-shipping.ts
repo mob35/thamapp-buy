@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Dialogs } from '@ionic-native/dialogs';
 
 /**
  * Generated class for the IonFormShippingComponent component.
@@ -29,7 +30,9 @@ export class IonFormShippingComponent {
       deliveryprice: 0
     }
   };
-  constructor() {
+  constructor(
+    private dialogs: Dialogs
+  ) {
     console.log('Hello IonFormShippingComponent Component');
   }
   selectaddress(data) {
@@ -90,10 +93,10 @@ export class IonFormShippingComponent {
         console.log(this.data.order);
         this.gotoNext.emit(this.data);
       } else {
-        alert('Please select products delivery');
+        this.dialogs.alert('Please select products delivery', 'Delivery');
       }
     } else {
-      alert('Please select shipping');
+      this.dialogs.alert('Please select shipping', 'Shipping');
     }
   }
 

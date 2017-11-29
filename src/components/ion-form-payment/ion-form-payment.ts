@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Dialogs } from '@ionic-native/dialogs';
+
 /**
  * Generated class for the IonFormPaymentComponent component.
  *
@@ -19,7 +21,9 @@ export class IonFormPaymentComponent {
 
   channel: string;
 
-  constructor() {
+  constructor(
+    public dialogs: Dialogs
+  ) {
   }
   paymentType(e) {
     this.datapayment = e;
@@ -54,7 +58,7 @@ export class IonFormPaymentComponent {
     if (chk) {
       this.gotoNext.emit(this.datapayment);
     } else {
-      alert('Please enter your payment');
+      this.dialogs.alert('Please enter your payment', 'Payment');
     }
   }
 }
