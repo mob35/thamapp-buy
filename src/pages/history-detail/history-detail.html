@@ -27,7 +27,7 @@
   </ion-list>
 
   <div *ngIf="item.isTransfer" class="is-transfer">
-    <p padding>อัพโหลดหลักฐานการชำระเงิน</p>
+    <p padding>อัพโหลดหลักฐานการชำระเงิน:</p>
     <div padding>
       <ion-upload-images [maximumImagesCount]="1" [imageDefault]="1" [images]="pImages" [isShowUpload]="false" (resImage)="resImageEvent($event)"></ion-upload-images>
     </div>

@@ -10,7 +10,7 @@
 <div class="min-height" *ngIf="images.length > 0">
   <ion-slides #formSlideImages pager="{{maximumImagesCount > 1 ? true:false}}">
     <ion-slide *ngFor="let item of images; let i = index;" class="min-height">
-      <img id="maxImage" src="{{ item }}" class="image-height">
+      <img src="{{ item }}" class="image-height">
       <div id="fixPosition">
         <ion-icon id="iconTrash" name="ios-trash" (click)="onRemove(i)"></ion-icon>
       </div>

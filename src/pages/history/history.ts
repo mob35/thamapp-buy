@@ -55,10 +55,8 @@ export class HistoryPage {
     this.loadingCtrl.onLoading();
     this.thamappAuthenService.checkTokenUser().then((data) => {
       this.loadingCtrl.dismiss();
-      // alert('ready to go!');
       this.getHistory();
 
-      // this.navCtrl.push(CheckoutPage)
     }, (err) => {
       this.loadingCtrl.dismiss();
       // this.showLogInPage();

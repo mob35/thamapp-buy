@@ -25,11 +25,12 @@ export class MyApp {
       splashScreen.hide();
       if (platform.is('cordova')) {
         this.onSignalSetup();
+        this.configFirebase();
+        window.localStorage.setItem('selectedTab', '0');
       }
     });
-    window.localStorage.setItem('selectedTab', '0');
-    this.configFirebase();
   }
+
   configFirebase() {
     let config = {
       apiKey: "AIzaSyA-adeTrR-W9bWXK0Z41c7VlJg9mGwUoZg",

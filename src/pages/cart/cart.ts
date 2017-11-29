@@ -61,7 +61,6 @@ export class CartPage {
     this.loadingCtrl.onLoading();
     this.thamappAuthenService.checkTokenUser().then((data) => {
       this.loadingCtrl.dismiss();
-      // alert('ready to go!');
       this.navCtrl.push(CheckoutPage)
     }, (err) => {
       this.loadingCtrl.dismiss();

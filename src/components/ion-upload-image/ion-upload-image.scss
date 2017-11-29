@@ -5,11 +5,13 @@ ion-upload-image {
     height: 300px !important;
 }
 .image-height{
-    height: 300px !important;
+    height: 100% !important;
+    width: 100% !important;
     object-fit: cover !important;
     display:flex;
     align-items: center; /* Vertical center alignment */
     justify-content: center; /* Horizontal center alignment */
+    margin: 0px !important;
 }
 .loading-upload {
     .loading-wrapper {
@@ -28,13 +30,10 @@ ion-upload-image {
     width: 50px !important;
     text-align: center !important;
     position: absolute !important;
-    bottom: 5px !important;
-    right: -1px !important;
+    bottom: 10px !important;
+    right: 5px !important;
 }
 #iconTrash{
     font-size: 3.5rem !important;
     color: rgba(221, 216, 216, 0.87) !important;
-}
-#maxImage{
-    max-height: 350px !important;
 }

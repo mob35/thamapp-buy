@@ -24,19 +24,19 @@ export class TabsPage {
 
   }
   countBadgeCart() {
-    // let user = window.localStorage.getItem('jjuser');
-    // let cart = JSON.parse(window.localStorage.getItem('gCart'));
-    // let length = 0;
-    // if (user) {
+    let user = window.localStorage.getItem('thamappbuyer');
+    let cart = JSON.parse(window.localStorage.getItem('gCart'));
+    let length = 0;
+    if (user) {
 
-    //   if (cart && cart.items) {
-    //     let cartLength = cart.items ? cart.items.length : 0;
-    //     for (let i = 0; i < cartLength; i++) {
-    //       length += cart.items[i].qty;
-    //     }
-    //   }
-    // }
-    // return length > 0 ? length.toString() : '';
+      if (cart && cart.items) {
+        let cartLength = cart.items ? cart.items.length : 0;
+        for (let i = 0; i < cartLength; i++) {
+          length += cart.items[i].qty;
+        }
+      }
+    }
+    return length > 0 ? length.toString() : '';
   }
   getSelectedTab() {
     return window.localStorage.getItem('selectedTab');

@@ -96,14 +96,11 @@ export class CheckoutPage {
   }
   completedShippingStep(e) {
     this.datashipping = e;
-    // alert('completedShippingStep');
     this.currentstep = 2;
     console.log(this.datashipping);
   }
   completedPaymentStep(e) {
     this.datapayment = e;
-    // console.log(e);
-    // alert('completedPaymentStep');
     console.log(this.datapayment);
     this.currentstep = 3;
   }

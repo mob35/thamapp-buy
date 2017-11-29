@@ -114,7 +114,6 @@ export class ProductDetailPage {
   }
 
   showLogInPage() {
-    // alert('login');
     this.navCtrl.push(LoginPage);
   }
 
