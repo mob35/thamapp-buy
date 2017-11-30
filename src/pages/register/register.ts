@@ -29,7 +29,7 @@ export class RegisterPage {
     public app: App,
     public loadingCtrl: LoadingProvider,
     public dialogs: Dialogs,
-    public platform: Platform,    
+    public platform: Platform,
     public oneSignal: OneSignal
   ) {
     // alert(this.navParams.data);
@@ -75,6 +75,7 @@ export class RegisterPage {
     this.user.password = 'Usr#Pass1234';
     this.authenService.signUp(this.user).then((data) => {
       window.localStorage.setItem('thamappbuyer', JSON.stringify(data));
+      window.localStorage.setItem('token', data.loginToken);
       if (this.platform.is('cordova')) {
         this.oneSignal.getIds().then((oneSignal) => {
           this.authenService.pushNotificationUser({ id: oneSignal.userId });
