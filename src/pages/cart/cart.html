@@ -15,6 +15,10 @@
 
 <ion-content [ngClass]="{'ion-content-active' : cart && cart.items && cart.items.length > 0}">
   <ion-list-cart *ngIf="user && cart && cart.items" [items]="cart.items" (returnItems)="returnItems($event)"></ion-list-cart>
+  <div *ngIf="(user && cart && !cart.items) || (user && cart && cart.items && cart.items.length ===0)" (click)="goHome()" text-center>
+    <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
+    <p class="color-gray-lock font-lock-size">ไม่มีรายการสินค้า</p>
+  </div>
   <div *ngIf="!user" text-center (click)="showLogInPage()">
     <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
     <p class="color-gray-lock font-lock-size">Please login</p>
@@ -36,7 +40,8 @@
           <p class="color-black-custom font-bold">{{cart.discount}}</p>
           <p class="color-black-custom font-bold">{{cart.totalamount}}</p>
         </ion-col>
-        <button class="button-md-2" id="btnCart" ion-button full color="danger" (click)="gotocheckout()">ดำเนินการต่อ</button>
+        <!-- <button class="button-md-2" id="btnCart" ion-button full color="danger" (click)="gotocheckout()">ดำเนินการต่อ</button> -->
+        <button  ion-button full color="header-cs" (click)="gotocheckout()">ดำเนินการต่อ</button>
       </ion-row>
     </div>
   </ion-toolbar>
