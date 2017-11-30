@@ -15,13 +15,130 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <form (ngSubmit)="saveAddress()">
-    <ion-item>
-      <ion-label floating>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input>
-    </ion-item>
-    <ion-item>
+<ion-content padding class="forms-validations-content">
+  <form class="sample-form validations-form" [formGroup]="address" (ngSubmit)="saveAddress(address.value)">
+    <section class="form-section">
+      <ion-item>
+        <ion-label floating>ชื่อ</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="firstname" class="form-controll" required name="Firstname" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.firstname">
+          <div class="error-message" *ngIf="address.get('firstname').hasError(validation.type) && (address.get('firstname').dirty || address.get('firstname').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label floating>นามสกุล</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="lastname" class="form-controll" required name="Lastname" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.firstname">
+          <div class="error-message" *ngIf="address.get('lastname').hasError(validation.type) && (address.get('lastname').dirty || address.get('lastname').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>เบอร์โทร</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="tel" class="form-controll" required name="tel" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('tel').hasError(validation.type) && (address.get('tel').dirty || address.get('tel').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>รหัสไปรษณีย์</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="postcode" class="form-controll" required name="postcode" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('postcode').hasError(validation.type) && (address.get('postcode').dirty || address.get('postcode').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>จังหวัด</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="province" class="form-controll" required name="province" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('province').hasError(validation.type) && (address.get('province').dirty || address.get('province').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>อำเภอ / เขต</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="district" class="form-controll" required name="district" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('district').hasError(validation.type) && (address.get('district').dirty || address.get('district').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>ตำบล / แขวง</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="subdistrict" class="form-controll" required name="subdistrict" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('subdistrict').hasError(validation.type) && (address.get('subdistrict').dirty || address.get('subdistrict').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>ที่อยู่</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="address" class="form-controll" required name="address" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('address').hasError(validation.type) && (address.get('address').dirty || address.get('address').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+
+    </section>
+    <!-- <ion-item>
       <ion-label floating>Last Name</ion-label>
       <ion-input type="text" [(ngModel)]="address.lastname" name="Lastname"></ion-input>
     </ion-item>
@@ -43,18 +160,9 @@
       <ion-input type="text" [(ngModel)]="address.district" name="District"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Subdistrict</ion-label>
-      <ion-input type="text" [(ngModel)]="address.subdistrict" name="Subdistrict"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Address</ion-label>
-      <ion-input type="text" [(ngModel)]="address.address" name="Address"></ion-input>
-    </ion-item>
-    
-    
-    
-   
-    
+      <ion-label floating>Tel</ion-label>
+      <ion-input type="text" [(ngModel)]="address.tel" name="Tel"></ion-input>
+    </ion-item> -->
     <button ion-button round full color="submit" type="submit">{{'SAVE'}}</button>
   </form>
 </ion-content>
