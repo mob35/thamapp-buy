@@ -58,7 +58,8 @@ export class HistoryDetailPage {
   }
   upLoadSlip() {
     this.orderService.updateOrder(this.navParams.data, this.resImg).then((data) => {
-      this.getHistory();
+      // this.getHistory();
+      this.navCtrl.pop();
     }, (err) => {
       console.log(err);
     });
