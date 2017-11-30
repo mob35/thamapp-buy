@@ -41,9 +41,10 @@
           <img src="{{itm.product.images ? itm.product.images[0] : 'no image'}}">
         </ion-thumbnail>
         <h2>{{itm.product.name}}</h2>
-        <p>ราคา : {{itm.product.promotionprice}} {{itm.product.currency}}</p>
+        <p>{{itm.delivery.name}} : {{itm.delivery.price}} {{itm.product.currency}}</p>
+        <p>ราคา : {{itm.product.price}} {{itm.product.currency}}</p>
         <p>จำนวน : {{itm.qty}}</p>
-        <p>รวม : {{itm.amount - itm.discount}} {{itm.product.currency}}</p>
+        <p>รวม : {{itm.amount + itm.delivery.price}} {{itm.product.currency}}</p>
         <button ion-button clear item-right></button>
       </ion-item>
     </ion-list>

@@ -6,6 +6,7 @@ import { ThamappAuthenProvider } from '../../providers/thamapp-authen/thamapp-au
 import { LoginPage } from '../login/login';
 import { CheckoutPage } from '../checkout/checkout';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the CartPage page.
@@ -70,6 +71,11 @@ export class CartPage {
 
   showLogInPage() {
     this.navCtrl.push(LoginPage);
+  }
+
+  goHome() {
+    window.localStorage.setItem('selectedTab', '0');
+    this.app.getRootNav().setRoot(TabsPage);    
   }
 
 }
