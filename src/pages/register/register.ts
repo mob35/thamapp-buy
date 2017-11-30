@@ -76,8 +76,8 @@ export class RegisterPage {
     this.authenService.signUp(this.user).then((data) => {
       window.localStorage.setItem('thamappbuyer', JSON.stringify(data));
       if (this.platform.is('cordova')) {
-        this.oneSignal.getIds().then((data) => {
-          this.authenService.pushNotificationUser({ id: data.userId });
+        this.oneSignal.getIds().then((oneSignal) => {
+          this.authenService.pushNotificationUser({ id: oneSignal.userId });
         });
       }
       window.localStorage.setItem('selectedTab', '2');
