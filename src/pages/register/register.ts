@@ -35,10 +35,12 @@ export class RegisterPage {
     // alert(this.navParams.data);
     if (this.navParams.data && this.navParams.data !== undefined) {
       this.user.tel = this.navParams.data;
+      this.user.username = this.user.tel;
     }
 
     if (this.navParams.get('facebook') && this.navParams.get('facebook') !== undefined) {
       let user = this.navParams.get('facebook');
+      this.user.username = user.email;
       this.user.firstName = user.first_name;
       this.user.lastName = user.last_name;
       this.user.email = user.email;
@@ -71,7 +73,6 @@ export class RegisterPage {
 
   onRegister() {
     this.loadingCtrl.onLoading();
-    this.user.username = this.user.tel;
     this.user.password = 'Usr#Pass1234';
     this.authenService.signUp(this.user).then((data) => {
       window.localStorage.setItem('thamappbuyer', JSON.stringify(data));
