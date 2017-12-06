@@ -46,66 +46,19 @@
         </ng-container>
       </div>
 
-
       <ion-item>
-        <ion-label floating>เบอร์โทร</ion-label>
+        <ion-label floating>ที่อยู่</ion-label>
         <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
-        <ion-input type="text" formControlName="tel" class="form-controll" required name="tel" required></ion-input>
+        <ion-input type="text" formControlName="address" class="form-controll" required name="address" required></ion-input>
 
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.tel">
-          <div class="error-message" *ngIf="address.get('tel').hasError(validation.type) && (address.get('tel').dirty || address.get('tel').touched)">
+          <div class="error-message" *ngIf="address.get('address').hasError(validation.type) && (address.get('address').dirty || address.get('address').touched)">
             {{ validation.message }}
           </div>
         </ng-container>
       </div>
-
-
-      <ion-item>
-        <ion-label floating>รหัสไปรษณีย์</ion-label>
-        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
-        <ion-input type="text" formControlName="postcode" class="form-controll" required name="postcode" required></ion-input>
-
-      </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
-          <div class="error-message" *ngIf="address.get('postcode').hasError(validation.type) && (address.get('postcode').dirty || address.get('postcode').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
-
-
-      <ion-item>
-        <ion-label floating>จังหวัด</ion-label>
-        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
-        <ion-input type="text" formControlName="province" class="form-controll" required name="province" required></ion-input>
-
-      </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
-          <div class="error-message" *ngIf="address.get('province').hasError(validation.type) && (address.get('province').dirty || address.get('province').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
-
-
-      <ion-item>
-        <ion-label floating>อำเภอ / เขต</ion-label>
-        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
-        <ion-input type="text" formControlName="district" class="form-controll" required name="district" required></ion-input>
-
-      </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
-          <div class="error-message" *ngIf="address.get('district').hasError(validation.type) && (address.get('district').dirty || address.get('district').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
-
 
       <ion-item>
         <ion-label floating>ตำบล / แขวง</ion-label>
@@ -121,21 +74,61 @@
         </ng-container>
       </div>
 
-
       <ion-item>
-        <ion-label floating>ที่อยู่</ion-label>
+        <ion-label floating>อำเภอ / เขต</ion-label>
         <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
-        <ion-input type="text" formControlName="address" class="form-controll" required name="address" required></ion-input>
+        <ion-input type="text" formControlName="district" class="form-controll" required name="district" required></ion-input>
 
       </ion-item>
       <div class="validation-errors">
         <ng-container *ngFor="let validation of validation_messages.tel">
-          <div class="error-message" *ngIf="address.get('address').hasError(validation.type) && (address.get('address').dirty || address.get('address').touched)">
+          <div class="error-message" *ngIf="address.get('district').hasError(validation.type) && (address.get('district').dirty || address.get('district').touched)">
             {{ validation.message }}
           </div>
         </ng-container>
       </div>
 
+      <ion-item>
+        <ion-label floating>จังหวัด</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="province" class="form-controll" required name="province" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('province').hasError(validation.type) && (address.get('province').dirty || address.get('province').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label floating>รหัสไปรษณีย์</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="postcode" class="form-controll" required name="postcode" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('postcode').hasError(validation.type) && (address.get('postcode').dirty || address.get('postcode').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label floating>เบอร์โทร</ion-label>
+        <!-- <ion-input type="text" [(ngModel)]="address.firstname" name="Firstname"></ion-input> -->
+        <ion-input type="text" formControlName="tel" class="form-controll" required name="tel" required></ion-input>
+
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.tel">
+          <div class="error-message" *ngIf="address.get('tel').hasError(validation.type) && (address.get('tel').dirty || address.get('tel').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
 
     </section>
     <!-- <ion-item>

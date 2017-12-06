@@ -1,3 +1,4 @@
+import { Dialogs } from '@ionic-native/dialogs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AddressModel } from "@ngcommerce/core";
@@ -17,7 +18,13 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 export class FormAddressPage {
   // address = {} as AddressModel;
   address: FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,  public formBuilder: FormBuilder) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public formBuilder: FormBuilder,
+    private dialogs: Dialogs
+  ) {
     this.address = this.formBuilder.group({
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
@@ -64,7 +71,33 @@ export class FormAddressPage {
     ]
   };
   saveAddress(values) {
-    console.log(values);
-    this.viewCtrl.dismiss(values);
+    if (values) {
+      if (!values.firstname) {
+        this.dialogs.alert('กรุณากรอกชื่อ');
+        return;
+      } else if (!values.lastname) {
+        this.dialogs.alert('กรุณากรอกนามสกุล');
+        return;
+      } else if (!values.address) {
+        this.dialogs.alert('กรุณากรอกที่อยู่');
+        return;
+      } else if (!values.subdistrict) {
+        this.dialogs.alert('กรุณากรอกตำบลหรือแขวง');
+        return;
+      } else if (!values.district) {
+        this.dialogs.alert('กรุณากรอกอำเภอหรือเขต');
+        return;
+      } else if (!values.province) {
+        this.dialogs.alert('กรุณากรอกจังหวัด');
+        return;
+      } else if (!values.postcode) {
+        this.dialogs.alert('กรุณากรอกรหัสไปรษณีย์');
+        return;
+      } else if (!values.tel) {
+        this.dialogs.alert('กรุณากรอกเบอร์โทร');
+        return;
+      }
+      this.viewCtrl.dismiss(values);
+    }
   }
 }
