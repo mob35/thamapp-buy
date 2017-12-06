@@ -39,7 +39,7 @@
 
       </ion-item>
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.firstname">
+        <ng-container *ngFor="let validation of validation_messages.lastname">
           <div class="error-message" *ngIf="address.get('lastname').hasError(validation.type) && (address.get('lastname').dirty || address.get('lastname').touched)">
             {{ validation.message }}
           </div>
@@ -53,7 +53,7 @@
 
       </ion-item>
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
+        <ng-container *ngFor="let validation of validation_messages.address">
           <div class="error-message" *ngIf="address.get('address').hasError(validation.type) && (address.get('address').dirty || address.get('address').touched)">
             {{ validation.message }}
           </div>
@@ -67,7 +67,7 @@
 
       </ion-item>
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
+        <ng-container *ngFor="let validation of validation_messages.subdistrict">
           <div class="error-message" *ngIf="address.get('subdistrict').hasError(validation.type) && (address.get('subdistrict').dirty || address.get('subdistrict').touched)">
             {{ validation.message }}
           </div>
@@ -81,7 +81,7 @@
 
       </ion-item>
       <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.tel">
+        <ng-container *ngFor="let validation of validation_messages.district">
           <div class="error-message" *ngIf="address.get('district').hasError(validation.type) && (address.get('district').dirty || address.get('district').touched)">
             {{ validation.message }}
           </div>
