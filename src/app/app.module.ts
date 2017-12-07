@@ -131,7 +131,7 @@ import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/i
     HttpModule,
     Ionic2RatingModule,
     IonicModule.forRoot(MyApp),
-    EcommerceCoreModule.forRoot('https://thamturakit.herokuapp.com/api/'),
+    EcommerceCoreModule.forRoot('https://thamturakit-test.herokuapp.com/api/'),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
