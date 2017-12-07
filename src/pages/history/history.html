@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="header-cs">
-    <ion-title>History</ion-title>
+    <ion-title>ประวิตการสั่งซื้อ</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,9 +15,10 @@
 
 <ion-content>
   <div *ngIf="!user" text-center (click)="showLogInPage()">
-    <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
+    <img src="./assets/image/login.png" alt="">
+    <!-- <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
     <p class="color-gray-lock font-lock-size">Please login</p>
-    <p class="color-gray-lock font-lock-size">Click here to login!</p>
+    <p class="color-gray-lock font-lock-size">Click here to login!</p> -->
   </div>
   <ion-list>
     <ion-item *ngFor="let item of order" (click)="detailHistory(item._id)">
