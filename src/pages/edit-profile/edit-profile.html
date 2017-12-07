@@ -6,22 +6,22 @@
 -->
 <ion-header>
   <ion-navbar color="header-cs">
-    <ion-title>Edit Profile</ion-title>
+    <ion-title>แก้ไขข้อมูลโปรไฟล์</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <p>อัพโหลดรูปภาพโปรไฟล์:</p>
   <ion-upload-images [maximumImagesCount]="1" [imageDefault]="0" [images]="pImages" [isShowUpload]="false" (resImage)="resImageEvent($event)"></ion-upload-images>
   <ion-item>
-    <ion-label stacked>Name</ion-label>
+    <ion-label stacked>ชื่อ</ion-label>
     <ion-input type="text" value="{{editProfile.firstName}}" [(ngModel)]="editProfile.firstName"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label stacked>Last Name</ion-label>
+    <ion-label stacked>นามสกุล</ion-label>
     <ion-input type="text" value="{{editProfile.lastName}}" [(ngModel)]="editProfile.lastName"></ion-input>
   </ion-item>
   <div>
-    <button ion-button block color="submit" (click)="editAccount()" [disabled]="!editProfile.firstName || !editProfile.lastName || !editProfile.profileImageURL">Save</button>
-    <button ion-button block color="submit" (click)="changePassword()">Change Password</button>
+    <button ion-button block color="submit" (click)="editAccount()" [disabled]="!editProfile.firstName || !editProfile.lastName || !editProfile.profileImageURL">บันทึก</button>
+    <button ion-button block color="submit" (click)="changePassword()">เปลี่ยนรหัสผ่าน</button>
   </div>
 </ion-content>
