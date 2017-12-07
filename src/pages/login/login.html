@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="header-cs">
-    <ion-title>Login with Phonenumber</ion-title>
+    <ion-title>กรอกเบอร์โทรศัพท์ เข้าสู่ระบบ</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,19 +16,19 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label floating>Phone Number</ion-label>
+      <ion-label floating>เบอร์โทรศัพท์</ion-label>
       <ion-input type="text" [(ngModel)]="tel"></ion-input>
     </ion-item>
   </ion-list>
   <ion-row>
     <ion-col>
-      <button [disabled]="!tel" color="header-cs" ion-button block (click)="login(tel)">Login</button>
+      <button [disabled]="!tel" color="header-cs" ion-button block (click)="login(tel)">เข้าสู่ระบบ</button>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <button ion-button block color="btn-facebook" (click)="loginFb()">
-        <ion-icon name="logo-facebook"></ion-icon>Login with Facebook</button>
+        <ion-icon name="logo-facebook"></ion-icon>เข้าสู่ระบบด้วยเฟซบุ๊ก</button>
     </ion-col>
   </ion-row>
 </ion-content>
