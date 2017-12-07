@@ -20,6 +20,7 @@ import { PreloadImage } from '../components/preload-image/preload-image';
 
 import { Ionic2RatingModule } from 'ionic2-rating';
 import { Dialogs } from '@ionic-native/dialogs';
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 import {
   EcommerceCoreModule,
@@ -69,6 +70,7 @@ import { IonFormShippingComponent } from '../components/ion-form-shipping/ion-fo
 import { IonFormConfirmComponent } from '../components/ion-form-confirm/ion-form-confirm';
 import { IonFormWizardComponent } from '../components/ion-form-wizard/ion-form-wizard';
 import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/ion-form-wizard-step';
+import { PostcodeProvider } from '../providers/postcode/postcode';
 
 @NgModule({
   declarations: [
@@ -128,10 +130,11 @@ import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/i
   ],
   imports: [
     BrowserModule,
+    AutoCompleteModule,
     HttpModule,
     Ionic2RatingModule,
-    IonicModule.forRoot(MyApp),
     EcommerceCoreModule.forRoot('https://thamturakit-test.herokuapp.com/api/'),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -170,7 +173,8 @@ import { IonFormWizardStepComponent } from '../components/ion-form-wizard-step/i
     OrderProvider,
     OneSignal,
     Facebook,
-    Dialogs
+    Dialogs,
+    PostcodeProvider
   ]
 })
 export class AppModule { }
