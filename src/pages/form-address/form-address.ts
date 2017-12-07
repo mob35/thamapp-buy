@@ -81,6 +81,9 @@ export class FormAddressPage {
     ]
   };
   saveAddress(values) {
+    console.log(this.searchbar.getValue());
+    console.log(this.searchbar.getItems());
+    console.log(this.searchbar.getSelection());
     if (values) {
       if (!values.firstname) {
         this.dialogs.alert('กรุณากรอกชื่อ', 'ข้อมูลไม่ครบถ้วน');
@@ -115,15 +118,14 @@ export class FormAddressPage {
   }
 
   autoInput(e) {
-    console.log(e);
-    if (!e || e.length < 5) {
-      this.postcode = {
-        locationcode: "",
-        subdistrict: "",
-        district: "",
-        province: "",
-        postcode: ""
-      };
-    }
+    console.log(e.length);
+    this.address.value.postcode = "";
+    this.postcode = {
+      locationcode: "",
+      subdistrict: "",
+      district: "",
+      province: "",
+      postcode: ""
+    };
   }
 }

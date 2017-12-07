@@ -52,14 +52,34 @@
       </div>
 
       <div class="header-address">
-        <ion-item-divider color="light">ข้อมูลติดต่อ</ion-item-divider>
+        <ion-item-divider color="light">ค้นหาที่อยู่ด้วยรหัสไปร์ษณีย์</ion-item-divider>
       </div>
       <div class="div-postcode">
         <ng-template #withFlags let-attrs="attrs">
           <span>{{ attrs.data.postcode }} {{ attrs.data.subdistrict }} {{ attrs.data.district }} {{ attrs.data.province }} </span>
         </ng-template>
-        <ion-auto-complete formControlName="postcode" (ionAutoInput)="autoInput($event)" (itemSelected)="selectPostcode($event)" [template]="withFlags" [dataProvider]="postcodeProvider"
+        <ion-auto-complete (ionAutoInput)="autoInput($event)" (itemSelected)="selectPostcode($event)" [template]="withFlags" [dataProvider]="postcodeProvider"
           [options]="{ placeholder : 'รหัสไปร์ษณีย์'}" #searchbar></ion-auto-complete>
+      </div>
+
+      <div class="header-address">
+        <ion-item-divider color="light">ข้อมูลติดต่อ</ion-item-divider>
+      </div>
+      <div padding-left>
+        <ion-item>
+          <ion-label floating>รหัสไปร์ษณีย์</ion-label>
+          <ion-input type="text" value="{{postcode ? postcode.postcode : ''}}" formControlName="postcode" class="form-controll" name="postcode"
+            required></ion-input>
+        </ion-item>
+        <!-- <ion-searchbar type="text" [(ngModel)]="postcode.subdistrict" formControlName="subdistrict" name="subdistrict" placeholder="ตำบล / แขวง"
+          required></ion-searchbar> -->
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.subdistrict">
+            <div class="error-message" *ngIf="address.get('subdistrict').hasError(validation.type) && (address.get('subdistrict').dirty || address.get('subdistrict').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <div padding-left>
@@ -144,6 +164,6 @@
       </div>
 
     </section>
-    <button ion-button round full color="submit" type="submit">{{'SAVE'}}</button>
+    <button ion-button round full color="submit" type="submit">บันทึก</button>
   </form>
 </ion-content>

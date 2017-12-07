@@ -17,7 +17,7 @@ export class PostcodeProvider implements AutoCompleteService {
     console.log('Hello PostcodeProvider Provider');
   }
   getResults(keyword: string) {
-    if (keyword.length >= 4) {
+    if (keyword.length >= 3) {
       return this.http.get("./assets/json/postcode.json")
         .map(
         result => {
