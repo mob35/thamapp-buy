@@ -63,7 +63,7 @@ export class LoginPage {
         }, (error) => {
           this.loadingCtrl.dismiss();
           if (JSON.parse(error._body).message) {
-            this.dialogs.alert(JSON.parse(error._body).message, 'Login');
+            this.dialogs.alert(JSON.parse(error._body).message, 'เข้าสู่ระบบ');
           } else {
             console.log(error);
           }
@@ -75,7 +75,7 @@ export class LoginPage {
     }, (err) => {
       this.loadingCtrl.dismiss();
       if (JSON.parse(err._body).message) {
-        this.dialogs.alert(JSON.parse(err._body).message, 'Login');
+        this.dialogs.alert(JSON.parse(err._body).message, 'เข้าสู่ระบบ');
       } else {
         console.log(err);
       }

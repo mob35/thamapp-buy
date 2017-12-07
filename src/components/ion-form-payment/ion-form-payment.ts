@@ -58,7 +58,7 @@ export class IonFormPaymentComponent {
     if (chk) {
       this.gotoNext.emit(this.datapayment);
     } else {
-      this.dialogs.alert('Please enter your payment', 'Payment');
+      this.dialogs.alert('โปรดเลือกช่องทางชำระเงิน', 'ชำระเงิน');
     }
   }
 }

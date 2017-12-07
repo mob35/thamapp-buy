@@ -112,10 +112,10 @@ export class IonFormShippingComponent {
         this.dataOrd.order = this.data.order;
         this.gotonextPage(this.dataOrd);
       } else {
-        this.dialogs.alert('Please select products delivery', 'Delivery');
+        this.dialogs.alert('โปรดเลือกวิธีการจัดส่งสินค้า', 'วิธีการจัดส่ง');
       }
     } else {
-      this.dialogs.alert('Please select shipping', 'Shipping');
+      this.dialogs.alert('โปรดเลือกที่อยู่ในการจัดส่งสินค้า', 'ที่อยู่จัดส่ง');
     }
   }
   gotonextPage(data) {

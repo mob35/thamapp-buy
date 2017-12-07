@@ -88,7 +88,7 @@ export class RegisterPage {
     }, (err) => {
       this.loadingCtrl.dismiss();
       if (JSON.parse(err._body).message) {
-        this.dialogs.alert(JSON.parse(err._body).message, 'Register');
+        this.dialogs.alert(JSON.parse(err._body).message, 'ลงทะเบียน');
       } else {
         console.log(err);
       }
