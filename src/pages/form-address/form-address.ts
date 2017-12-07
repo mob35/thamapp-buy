@@ -1,9 +1,10 @@
 import { Dialogs } from '@ionic-native/dialogs';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 // import { AddressModel } from "@ngcommerce/core";
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { PostcodeProvider } from '../../providers/postcode/postcode';
+import { AutoCompleteComponent } from 'ionic2-auto-complete';
 /**
  * Generated class for the FormAddressPage page.
  *
@@ -17,6 +18,7 @@ import { PostcodeProvider } from '../../providers/postcode/postcode';
   templateUrl: 'form-address.html',
 })
 export class FormAddressPage {
+  @ViewChild('searchbar') searchbar: AutoCompleteComponent;
   address: FormGroup;
   postcode: any = {
     locationcode: "",
@@ -111,7 +113,9 @@ export class FormAddressPage {
   selectPostcode(e) {
     this.postcode = e;
   }
+
   autoInput(e) {
+    console.log(e);
     if (!e || e.length < 5) {
       this.postcode = {
         locationcode: "",
