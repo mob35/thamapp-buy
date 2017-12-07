@@ -81,10 +81,13 @@ export class FormAddressPage {
     ]
   };
   saveAddress(values) {
-    console.log(this.searchbar.getValue());
-    console.log(this.searchbar.getItems());
-    console.log(this.searchbar.getSelection());
     if (values) {
+      if (values.province) {
+        values.postcode = this.searchbar.getValue()
+      } else {
+        values.postcode = '';
+      }
+
       if (!values.firstname) {
         this.dialogs.alert('กรุณากรอกชื่อ', 'ข้อมูลไม่ครบถ้วน');
         return;
