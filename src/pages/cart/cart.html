@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="header-cs">
-    <ion-title>Cart</ion-title>
+    <ion-title>ตะกร้าสินค้า</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,9 +20,10 @@
     <p class="color-gray-lock font-lock-size">ไม่มีรายการสินค้า</p>
   </div>
   <div *ngIf="!user" text-center (click)="showLogInPage()">
-    <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
+    <!-- <ion-icon class="lock color-gray-lock" name="ios-lock-outline"></ion-icon>
     <p class="color-gray-lock font-lock-size">Please login</p>
-    <p class="color-gray-lock font-lock-size">Click here to login!</p>
+    <p class="color-gray-lock font-lock-size">Click here to login!</p> -->
+    <img src="./assets/image/basket.png" alt="">
   </div>
 </ion-content>
 

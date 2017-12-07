@@ -30,15 +30,15 @@ export class CheckoutPage {
   steps: Array<any> = [
     {
       value: 1,
-      title: "SHIPPING"
+      title: "ที่อยู่จัดส่ง"
     },
     {
       value: 2,
-      title: "PAYMENT"
+      title: "ชำระเงิน"
     },
     {
       value: 3,
-      title: "CONFIRM"
+      title: "ยืนยัน"
     }
   ];
   currentstep: number = 1;
