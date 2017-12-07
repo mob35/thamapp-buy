@@ -86,8 +86,8 @@ export class FormAddressPage {
       } else if (!values.lastname) {
         this.dialogs.alert('กรุณากรอกนามสกุล', 'ข้อมูลไม่ครบถ้วน');
         return;
-      } else if (!values.address) {
-        this.dialogs.alert('กรุณากรอกที่อยู่', 'ข้อมูลไม่ครบถ้วน');
+      } else if (!values.postcode) {
+        this.dialogs.alert('กรุณากรอกรหัสไปรษณีย์', 'ข้อมูลไม่ครบถ้วน');
         return;
       } else if (!values.subdistrict) {
         this.dialogs.alert('กรุณากรอกตำบลหรือแขวง', 'ข้อมูลไม่ครบถ้วน');
@@ -98,8 +98,8 @@ export class FormAddressPage {
       } else if (!values.province) {
         this.dialogs.alert('กรุณากรอกจังหวัด', 'ข้อมูลไม่ครบถ้วน');
         return;
-      } else if (!values.postcode) {
-        this.dialogs.alert('กรุณากรอกรหัสไปรษณีย์', 'ข้อมูลไม่ครบถ้วน');
+      } else if (!values.address) {
+        this.dialogs.alert('กรุณากรอกที่อยู่', 'ข้อมูลไม่ครบถ้วน');
         return;
       } else if (!values.tel) {
         this.dialogs.alert('กรุณากรอกเบอร์โทร', 'ข้อมูลไม่ครบถ้วน');
