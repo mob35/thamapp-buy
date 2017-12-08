@@ -121,7 +121,7 @@ export class FormAddressPage {
   }
 
   autoInput(e) {
-    console.log(e.length);
+    // console.log(e.length);
     this.address.value.postcode = "";
     this.postcode = {
       locationcode: "",
